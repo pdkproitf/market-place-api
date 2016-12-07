@@ -29,8 +29,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-gem "devise"
-gem 'grape-swagger-rails'
+gem 'devise'
+# Sabisu gems
+gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
+gem 'compass-rails'
 gem 'furatto'
 gem 'font-awesome-rails'
 gem 'simple_form'
