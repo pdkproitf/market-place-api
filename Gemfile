@@ -30,6 +30,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 gem "devise"
+gem 'grape-swagger-rails'
+gem 'furatto'
+gem 'font-awesome-rails'
+gem 'simple_form'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
