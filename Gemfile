@@ -30,13 +30,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 gem 'devise'
-# Sabisu gems
-gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
-gem 'compass-rails'
+gem 'grape-swagger-rails'
 gem 'furatto'
 gem 'font-awesome-rails'
 gem 'simple_form'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #Api gems
@@ -45,7 +42,7 @@ gem 'active_model_serializers'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem "rspec-rails", "~> 2.14"
+  gem "rspec-rails"
   gem "factory_girl_rails"
   gem 'ffaker'
   gem 'shoulda-matchers', '~> 3.1'
