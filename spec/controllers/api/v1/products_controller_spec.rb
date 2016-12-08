@@ -23,7 +23,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     end
 
     it "return the information about a reporter on a hash" do
-      product_response = json_response
+      product_response = json_response[:product]
       expect(product_response[:title]).to eql @product.title
     end
 
@@ -40,7 +40,7 @@ describe "POST #create" do
       end
 
       it "renders the json representation for the product record just created" do
-        product_response = json_response
+        product_response = json_response[:product]
         expect(product_response[:title]).to eql @product_attributes[:title]
       end
 
@@ -83,7 +83,7 @@ describe "POST #create" do
       end
 
       it "renders the json representation for the updated user" do
-        product_response = json_response
+        product_response = json_response[:product]
         expect(product_response[:title]).to eql "An expensive TV"
       end
 
