@@ -14,8 +14,11 @@ RSpec.describe Product, type: :model do
   describe "validate attribute" do
     it  { expect(product.title).to be_truthy }
     it  { expect(product.price).to be_truthy }
-    it { expect(product).to validate_numericality_of(:price).is_greater_than_or_equal_to(0) }
+    it  { expect(product).to validate_numericality_of(:price).is_greater_than_or_equal_to(0) }
     it  { expect(product.user_id).to be_truthy }
   end
 
+  it "association with user" do
+    expect(product).to belong_to(:user)
+  end
 end

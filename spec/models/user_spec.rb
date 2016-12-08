@@ -13,6 +13,8 @@ describe User do
 
   it { should validate_presence_of(:email) }
 
+  it { should have_many(:products) }
+
   describe "when email is not present" do
     before { @user.email = " " }
     it { should_not be_valid }
@@ -37,6 +39,21 @@ describe User do
       existing_user = FactoryGirl.create(:user, auth_token: "auniquetoken123")
       @user.generate_authentication_token!
       expect(@user.auth_token).not_to eql existing_user.auth_token
+    end
+  end
+
+  describe  "#products association" do
+    before do
+      @user.save
+      3.times { FactoryGirl.create :product, user: @user }
+    end
+
+    it "destroys the association products on self destruct" do
+      products = @user.products
+      @user.destroy
+      products.each do |product|
+        expect(Product.find(product)).to raise_error ActiveRecord::RecordNotFound
+      end
     end
   end
  end
