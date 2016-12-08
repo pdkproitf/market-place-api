@@ -25,6 +25,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @user.destroy
     head 204
   end
