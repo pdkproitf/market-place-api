@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :auth_token, uniqueness: true
 
   has_many  :products, dependent: :destroy
+  has_many  :orders, dependent: :destroy
 
   def generate_authentication_token!
     begin
