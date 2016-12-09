@@ -18,7 +18,10 @@ RSpec.describe Product, type: :model do
     it  { expect(product.user_id).to be_truthy }
   end
 
-  it "association with user" do
-    expect(product).to belong_to(:user)
+  describe "association" do
+    it { expect(product).to belong_to(:user) }
+    it { should have_many(:placements) }
+    it { should have_many(:orders).through(:placements) }
   end
+
 end
