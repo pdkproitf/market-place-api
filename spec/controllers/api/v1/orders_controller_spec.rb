@@ -21,7 +21,9 @@ RSpec.describe Api::V1::OrdersController, type: :controller do
     before(:each) do
       current_user = FactoryGirl.create :user
       api_authorization_header current_user.auth_token
-      @order = FactoryGirl.create :order, user: current_user
+
+      @product = FactoryGirl.create :product
+      @order = FactoryGirl.create :order, user: current_user, product_ids: [@product.id]
       get :show, user_id: current_user.id, id: @order.id
     end
 
@@ -31,6 +33,16 @@ RSpec.describe Api::V1::OrdersController, type: :controller do
     end
 
     it { should respond_with 200 }
+
+    it "includes the total for the order" do
+      order_response = json_response[:order]
+      expect(order_response[:total]).to eql @order.total.to_s
+    end
+
+    it "includes the products on the order" do
+      order_response = json_response[:order]
+      expect(order_response[:products]).to have(1).item
+    end
   end
 
   describe "POST #create" do
