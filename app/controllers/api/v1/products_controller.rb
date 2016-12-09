@@ -2,8 +2,8 @@ class Api::V1::ProductsController < ApplicationController
   before_action :authenticate_with_token!, only: [:create, :update, :destroy]
   respond_to :json
 
-  def index
-    respond_with Product.all
+ def index
+    respond_with Product.search(params)
   end
 
   def show
