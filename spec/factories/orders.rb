@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :order do
     user
-    total { rand() * 100 }
+    total 0
   end
 end
