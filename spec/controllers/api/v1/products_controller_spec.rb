@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Api::V1::ProductsController do
 
-    describe "GET #index" do
+  describe "GET #index" do
     before(:each) do
       4.times { FactoryGirl.create :product }
     end
@@ -23,6 +23,8 @@ describe Api::V1::ProductsController do
           expect(product_response[:user]).to be_present
         end
       end
+      # we added this lines for the pagination
+      it_behaves_like "paginated list"
 
       it { should respond_with 200 }
     end
