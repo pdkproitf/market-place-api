@@ -35,6 +35,7 @@ gem 'furatto'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'pry-byebug'
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #Api gems
