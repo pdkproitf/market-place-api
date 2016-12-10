@@ -36,6 +36,8 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'pry-byebug'
 gem 'kaminari'
+
+gem 'delayed_job_active_record'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #Api gems
