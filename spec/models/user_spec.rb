@@ -14,6 +14,7 @@ describe User do
   it { should validate_presence_of(:email) }
 
   it { should have_many(:products) }
+  it { should have_many(:orders) }
 
   describe "when email is not present" do
     before { @user.email = " " }
